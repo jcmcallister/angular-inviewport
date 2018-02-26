@@ -75,6 +75,13 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
    * @memberof InViewportDirective
    */
   @Input()
+  public offsetTop = 0;
+  /**
+   * An offset to the top of the viewport, in case of sticky page elements such as nav menus
+   *
+   * @memberof InViewportDirective
+   */
+  @Input()
   public parent: any;
   /**
    * Returns true if element is in viewport
@@ -105,7 +112,8 @@ export class InViewportDirective implements AfterViewInit, OnDestroy {
     const bottom = this.windowRef.innerHeight;
     const left = 0;
     const right = this.windowRef.innerWidth;
-    const top = 0;
+    const top = this.offsetTop < this.windowRef.innerHeight ? this.offsetTop : 0;
+
     return { bottom, right, left, top };
   }
   /**

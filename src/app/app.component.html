@@ -2,6 +2,10 @@
 
 <div class="spacer"></div>
 
+<div class="fixed-header">
+  <p>Fixed header!</p>
+</div>
+
 <p
   class="small-element"
   snInViewport
@@ -28,5 +32,14 @@
   <div class="spacer"></div>
 
 </div>
+
+<p
+  class="offset-checker"
+  snInViewport
+  (inViewportChange)="onInViewportChange($event)"
+  [ngClass]="{'highlight': highlight}"
+  [offsetTop]="120">
+    I'm higlighted when I'm below the the fixed header offset from the top of the viewport.
+  </p>
 
 <div class="spacer"></div>
